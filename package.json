@@ -1,6 +1,6 @@
 {
   "name": "workflowit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "YuzuJS",
   "description": "Run async tasks in a series of steps!",
   "main": "./lib/Workflow.js",
@@ -42,14 +42,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/YuzuJS/enumit.git"
+    "url": "git://github.com/YuzuJS/workflowit.git"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/YuzuJS/enumit.git"
+    "url": "git://github.com/YuzuJS/workflowit.git"
   },
   "bugs": {
-    "url": "https://github.com/YuzuJS/enumit/issues"
+    "url": "https://github.com/YuzuJS/workflowit/issues"
   },
-  "homepage": "https://github.com/YuzuJS/enumit"
+  "homepage": "https://github.com/YuzuJS/workflowit"
 }
