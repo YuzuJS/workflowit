@@ -1,6 +1,8 @@
 # workflow-it
 Run async tasks in a series of steps.
 
+[![Build Status](https://travis-ci.org/YuzuJS/workflowit.svg?branch=master)](https://travis-ci.org/YuzuJS/workflowit)
+
 Unlike [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all), which runs all tasks in parallel, `workflowit` will run each task in sequence they were added to the workflow object.
 
 This is useful for when you are tying to put a bunch of tasks back to back without each one stepping over each other.
