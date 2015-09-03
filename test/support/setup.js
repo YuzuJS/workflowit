@@ -1,8 +1,6 @@
-"use strict";
-
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
-var sinonChai = require("sinon-chai");
+import chai from "chai";
+import chaiAsPromised from "chai-as-promised";
+import sinonChai from "sinon-chai";
 
 global.sinon = require("sinon");
 global.expect = chai.expect;
