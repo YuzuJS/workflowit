@@ -26,10 +26,19 @@ function showWelcome() {
 // Setup the workflow.
 var Workflow = require("workflowit");
 
+// Create workflow and add steps.
 var wf = new Workflow("startup")
     .addStep(new Workflow.Step("tos", showTermsOfService))
     .addStep(new Workflow.Step("rn", showReleaseNotes))
     .addStep(new Workflow.Step("welcome", showWelcome));
+
+// You can also provide steps directly in the constructor
+var wf = new Workflow(
+    "startup",
+    new Workflow.Step("tos", showTermsOfService),
+    new Workflow.Step("rn", showReleaseNotes),
+    new Workflow.Step("welcome", showWelcome)
+);
 
 // Later....
 wf.run().done();
@@ -61,4 +70,18 @@ The `Worflow.Step` object emits an `exec` event when it has complted running.
 step.on("exec", function (wf) {
     console.log(step.name + " just ran for the wf: " + wf.name);
 }
+```
+
+## You can of course extend, swap `Workflow` and `Workflow.Step`.
+
+```typescript
+interface Workflow {
+    addStep(step: WorkflowStep);
+    run(): Promise;
+}
+
+interface WorkflowStep { // Yup just a command.
+    exec();
+}
+
 ```
