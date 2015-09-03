@@ -4,11 +4,11 @@ import { makeEmitter } from "pubit-as-promised";
 class Step {
     constructor(name, fn) {
         this.name = name;
-        this.fn = fn.bind(this);
+        this.fn = fn;
         this._publish = makeEmitter(this, ["exec"]);
     }
     exec(wf) {
-        return Q(this.fn()).then(() => this._publish("exec", wf));
+        return Q(this.fn(this, wf)).then(() => this._publish("exec", wf));
     }
 }
 export default class Workflow {

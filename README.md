@@ -19,8 +19,9 @@ function showReleaseNotes() {
         rnWgt.show(notes);
     });
 }
-function showWelcome() {
-    welcomeWgt.show();
+// The task function is passed the step and workflow object.
+function showWelcome(step, workflow) {
+    welcomeWgt.show(workflow.name, step.name);
 }
 
 // Setup the workflow.
