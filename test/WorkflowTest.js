@@ -98,5 +98,23 @@ describe("Workflow", function () {
                 this.execListener3.should.have.been.calledWith(this.workflow);
             });
         });
+
+        describe("via `constructor`", () => {
+            beforeEach(() => {
+                this.workflow = new Workflow(
+                    "start",
+                    this.step1,
+                    this.step2,
+                    this.step3
+                );
+            });
+
+            // If above tests passed above, we can just PRIVATE property. KISS.
+            it("should have the steps stored", () => {
+                this.step1.should.equal(this.workflow._steps[0]);
+                this.step2.should.equal(this.workflow._steps[1]);
+                this.step3.should.equal(this.workflow._steps[2]);
+            });
+        });
     });
 });

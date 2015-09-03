@@ -12,9 +12,9 @@ class Step {
     }
 }
 export default class Workflow {
-    constructor(name) {
+    constructor(name, ...steps) {
         this._name = name;
-        this._steps = [];
+        this._steps = steps || [];
         this._publish = makeEmitter(this, ["step", "run"]);
     }
     get name() {
