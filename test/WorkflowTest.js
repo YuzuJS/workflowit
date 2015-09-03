@@ -44,6 +44,13 @@ describe("Workflow", function () {
             this.workflow.on("run", this.runListener);
             this.workflow.on("step", this.stepListener);
 
+            this.execListener1 = sinon.stub();
+            this.execListener2 = sinon.stub();
+            this.execListener3 = sinon.stub();
+            this.step1.on("exec", this.execListener1);
+            this.step2.on("exec", this.execListener2);
+            this.step3.on("exec", this.execListener3);
+
             return this.workflow.run();
         });
 
@@ -69,6 +76,18 @@ describe("Workflow", function () {
 
         it("should have called the `stepListener` the third time with step 3", () => {
             this.stepListener.getCall(2).should.have.been.calledWith(this.step3, 1);
+        });
+
+        it("should have called the `exec` listener for step 1", () => {
+            this.execListener1.should.have.been.calledWith(this.workflow);
+        });
+
+        it("should have called the `exec` listener for step 2", () => {
+            this.execListener2.should.have.been.calledWith(this.workflow);
+        });
+
+        it("should have called the `exec` listener for step 3", () => {
+            this.execListener3.should.have.been.calledWith(this.workflow);
         });
     });
 });
