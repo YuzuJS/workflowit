@@ -1,3 +1,4 @@
+/*jshint expr: true */
 import Workflow from "../src/Workflow";
 import Q from "q";
 
